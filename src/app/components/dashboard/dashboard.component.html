@@ -1,0 +1,19 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-class">
+        <div class="title">Canvas Demo with firebase</div>
+        <div class="title-right">
+            <div class="container-class">
+                <img class="profile-image" src="{{userDetails.user.photoURL}}" />
+                <p>welcome <span *ngIf="userDetails">{{userDetails.user.displayName}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+<div class="btn-login">
+    <button type="button" class="btn btn-primary" (click)="logout()">Log out</button>
+</div>
+
+<app-paint></app-paint>

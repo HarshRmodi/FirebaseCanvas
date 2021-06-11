@@ -1,0 +1,40 @@
+<div>
+  <div class="d-flex flex-wrap mb-5">
+    <div title="Select and move shapes/texts" class="toolbox-item ml-1 mt-1"
+      [ngClass]="{ selected: selected === 'SELECT' }" (click)="select(DrawingTools.SELECT)">
+      <img src="assets/toolbar-images/select.png" />
+    </div>
+    <div title="Erase shape/text on click" class="toolbox-item ml-1 mt-1"
+      [ngClass]="{ selected: selected === 'ERASER' }" (click)="select(DrawingTools.ERASER)">
+      <img src="assets/toolbar-images/eraser.png" />
+    </div>
+    
+    <div title="Free hand drawing" class="toolbox-item ml-1 mt-1" [ngClass]="{ selected: selected === 'PENCIL' }"
+      (click)="select(DrawingTools.PENCIL)">
+      <img src="assets/toolbar-images/pencil.png" />
+    </div>
+   
+    <div title="Clear canvas, remove all shapes/texts" class="toolbox-item ml-1 mt-1"
+      [ngClass]="{ selected: selected === 'GARBAGE' }" (click)="select(DrawingTools.GARBAGE)">
+      <img src="assets/toolbar-images/garbage.png" />
+    </div>
+
+  </div>
+  <app-colour-palette></app-colour-palette>
+  <app-thickness-slider></app-thickness-slider>
+  <div class="card">
+    <div class="card-header">Upload image</div>
+    <div class="card-body text-center">
+      <img id="testImage" class="images-item-upload" [src]="url" (click)="addImageOnCanvas(url);">
+      <input type="file" (change)="readUrl($event);" accept="image/*">
+      <br />
+      <br />
+      <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="removeWhite(url);">
+            <i class="fa fa-times" aria-hidden="true"></i> Remove</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
